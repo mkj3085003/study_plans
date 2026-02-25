@@ -22,11 +22,6 @@
  :default-templates
  {:journals "每日成长"}
 
- ;; Define custom macros.
- ;; Use with {{macro-name}} in pages.
- :macros
- {"today-link" "[[<%today%>]]"}
-
  ;; Set a custom date format for the journal page title.
  ;; Default value: "MMM do, yyyy"
  ;; e.g., "Jan 19th, 2038"
@@ -271,7 +266,7 @@
  ;; input "{{poem red,blue}}"
  ;; becomes
  ;; Rose is red, violet's blue. Life's ordered: Org assists you.
-
+ :macros {}
 
  ;; Configure the default expansion level for linked references.
  ;; For example, consider the following block hierarchy:

@@ -1,0 +1,46 @@
+/* Workflow cards */
+:root {
+  --wf-card-bg: var(--ls-secondary-background-color, #f7f7f7);
+  --wf-card-border: var(--ls-border-color, #e3e3e3);
+  --wf-card-radius: 12px;
+  --wf-card-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+}
+
+div[data-refs-self*="wf-grid"] > .block-children-container > .block-children {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 12px;
+  margin-top: 8px;
+}
+
+div[data-refs-self*="wf-card"] {
+  background: var(--wf-card-bg);
+  border: 1px solid var(--wf-card-border);
+  border-radius: var(--wf-card-radius);
+  padding: 10px 12px;
+  box-shadow: var(--wf-card-shadow);
+}
+
+div[data-refs-self*="wf-card"] .bullet,
+div[data-refs-self*="wf-card"] .block-children-left-border {
+  display: none;
+}
+
+div[data-refs-self*="wf-card"] > .flex-1.flex-row {
+  align-items: flex-start;
+}
+
+div[data-refs-self*="wf-card"] .block-children-container {
+  margin-left: 0 !important;
+}
+
+a.tag[data-ref="wf-card"],
+a.tag[data-ref="wf-grid"] {
+  display: none;
+}
+
+@media (max-width: 700px) {
+  div[data-refs-self*="wf-grid"] > .block-children-container > .block-children {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,14 +1,52 @@
-/* Workflow cards (theme-friendly) */
+/* Workflow cards */
 :root {
-  --wf-card-bg: var(--ls-secondary-background-color);
-  --wf-card-border: var(--ls-border-color);
+  --wf-blue-50: #eef5ff;
+  --wf-blue-100: #dbe9ff;
+  --wf-blue-200: #c3dbff;
+  --wf-blue-500: #3b82f6;
+  --wf-blue-600: #2563eb;
+  --wf-blue-700: #1d4ed8;
+  --wf-card-bg: #f6f9ff;
+  --wf-card-border: #cfe0ff;
   --wf-card-radius: 16px;
-  --wf-card-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
-  --wf-card-accent: var(--ls-link-text-color);
+  --wf-card-shadow: 0 10px 24px rgba(59, 130, 246, 0.12);
+}
+
+/* Soft blue theme accents (light) */
+body,
+.ls-main,
+.theme-light {
+  background: radial-gradient(1200px 600px at 10% -10%, var(--wf-blue-100), transparent 60%),
+    radial-gradient(900px 500px at 90% 0%, var(--wf-blue-50), transparent 60%);
+}
+
+.theme-light {
+  --ls-primary-background-color: #f8fbff;
+  --ls-secondary-background-color: var(--wf-blue-50);
+  --ls-border-color: var(--wf-blue-200);
+  --ls-primary-text-color: #0f172a;
+  --ls-link-text-color: var(--wf-blue-700);
+  --ls-link-text-hover-color: var(--wf-blue-600);
+  --ls-page-title-color: #0b214a;
+}
+
+/* Deep blue theme (dark) */
+.theme-dark,
+.theme-dark body,
+.theme-dark .ls-main {
+  background: radial-gradient(1200px 600px at 10% -10%, #10265b, transparent 60%),
+    radial-gradient(900px 500px at 90% 0%, #0a1a42, transparent 60%),
+    #0a1431;
 }
 
 .theme-dark {
-  --wf-card-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+  --ls-primary-background-color: #0a1431;
+  --ls-secondary-background-color: #0f1d47;
+  --ls-border-color: #1f3b7a;
+  --ls-primary-text-color: #e6efff;
+  --ls-link-text-color: #8ab4ff;
+  --ls-link-text-hover-color: #a9c7ff;
+  --ls-page-title-color: #e6efff;
 }
 
 div[data-refs-self*="wf-grid"] > .block-children-container > .block-children {
@@ -16,7 +54,6 @@ div[data-refs-self*="wf-grid"] > .block-children-container > .block-children {
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 12px;
   margin-top: 8px;
-  align-items: start;
 }
 
 div[data-refs-self*="wf-card"] {
@@ -26,18 +63,15 @@ div[data-refs-self*="wf-card"] {
   padding: 10px 12px;
   box-shadow: var(--wf-card-shadow);
   position: relative;
-  overflow: visible;
+  overflow: hidden;
+  contain: layout paint;
 }
 
 div[data-refs-self*="wf-card"]::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    120deg,
-    color-mix(in srgb, var(--wf-card-accent) 20%, transparent),
-    transparent 60%
-  );
+  background: linear-gradient(120deg, rgba(59, 130, 246, 0.08), transparent 50%);
   pointer-events: none;
 }
 
@@ -74,12 +108,10 @@ div[data-refs-self*="wf-card"] table {
 
 div[data-refs-self*="wf-card"] .custom-query,
 div[data-refs-self*="wf-card"] .query-result,
-div[data-refs-self*="wf-card"] .query-table-wrapper,
 div[data-refs-self*="wf-card"] .block-children-container,
 div[data-refs-self*="wf-card"] .block-children {
-  position: relative !important;
-  display: block;
-  overflow: visible;
+  position: static !important;
+  overflow: hidden;
 }
 
 a.tag[data-ref="wf-card"],
@@ -90,12 +122,12 @@ a.tag[data-ref="wf-grid"] {
 /* Cute card typography */
 div[data-refs-self*="wf-card"] .block-content {
   font-weight: 600;
-  color: var(--ls-primary-text-color);
+  color: #0b214a;
 }
 
 div[data-refs-self*="wf-card"] .block-children .block-content {
   font-weight: 400;
-  color: var(--ls-secondary-text-color, var(--ls-primary-text-color));
+  color: #1f2a44;
 }
 
 @media (max-width: 700px) {

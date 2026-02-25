@@ -25,7 +25,8 @@
  ;; Define custom macros.
  ;; Use with {{macro-name}} in pages.
  :macros
- {"today-link" "[[<%today%>]]"}
+ {"today-link" "[[<%today%>]]"
+  "today-embed" "{{embed [[<%today%>]]}}"}
 
  ;; Set a custom date format for the journal page title.
  ;; Default value: "MMM do, yyyy"
